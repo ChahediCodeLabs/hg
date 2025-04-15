@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>الصفحة الرئيسية</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body dir="rtl">
+    <div class="container">
+        <h2>مرحباً بك في اختبار الاحتباس الحراري</h2>
+        <form method="POST">
+            <button type="submit">ابدأ الامتحان</button>
+        </form>
+        <br>
+        <a href="/dashboard"><button>لوحة المتابعة</button></a>
+    </div>
+</body>
+</html>

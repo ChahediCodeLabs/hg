@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>الاختبار</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script>
+        let seconds = 300;
+        function countdown() {
+            if (seconds <= 0) {
+                document.getElementById("examForm").submit();
+            } else {
+                let min = Math.floor(seconds / 60);
+                let sec = seconds % 60;
+                document.getElementById("timer").textContent = min + " : " + (sec < 10 ? "0" + sec : sec);
+                seconds--;
+                setTimeout(countdown, 1000);
+            }
+        }
+        window.onload = countdown;
+    </script>
+</head>
+<body dir="rtl">
+    <div class="container">
+        <div class="header">
+            <h2>اختبار حول الاحتباس الحراري</h2>
+            <div id="timer" class="timer">5:00</div>
+        </div>
+        <form method="POST" id="examForm">
+            <label>الاسم:</label>
+            <input type="text" name="name" required><br><br>
+
+            {% for question in questions %}
+                <fieldset>
+                    <legend>{{ question['question'] }}</legend>
+                    {% for choice in question['choices'] %}
+                        <label>
+                            <input type="checkbox" name="question{{ loop.index0 }}" value="{{ loop.index0 }}">
+                            {{ choice }}
+                        </label><br>
+                    {% endfor %}
+                </fieldset>
+            {% endfor %}
+
+            <br>
+            <button type="submit">إرسال</button>
+        </form>
+    </div>
+</body>
+</html>

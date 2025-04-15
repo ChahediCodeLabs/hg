@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>لوحة المتابعة</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body dir="rtl">
+    <div class="container">
+        <h2>نتائج الامتحان</h2>
+        <table>
+            <tr><th>الاسم</th><th>النقطة</th></tr>
+            {% for name, score in scores.items() %}
+                <tr><td>{{ name }}</td><td>{{ score }}</td></tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

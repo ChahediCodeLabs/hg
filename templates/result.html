@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>النتيجة</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="result-box">
+        <h1>أحسنت يا {{ name }}!</h1>
+        <p>عدد الأجوبة الصحيحة: {{ correct }} من {{ total }}</p>
+        <p>نقطتك: <strong>{{ score }} / 20</strong></p>
+    </div>
+</body>
+</html>
